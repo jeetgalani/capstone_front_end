@@ -14,6 +14,7 @@ class Body extends Component {
         check_in: null,
         check_out: null,
         budget: null,
+        date: null
     };
 
     resetValues = () => {
@@ -26,8 +27,8 @@ class Body extends Component {
             <div class="background">
                 <form id="myForm" class="rcorners2">
                     <div class="form-content">
-                    <Scenerypicker selected = {this.state.scenary} />
-                    <Budgetpicker selected = {this.state.budget} />
+                    {/* <Scenerypicker selected = {this.state.scenary} />
+                    <Budgetpicker selected = {this.state.budget} /> */}
                     <p class="input-text form-fields">
                         <span> Scenery: </span>
                     <select class="Scenery">
@@ -36,8 +37,8 @@ class Body extends Component {
                         <option value="Oceanfront">Oceanfront</option>
                     </select>
                     </p>
-                    <p class="input-text form-fields"> Check In:   <Datepicker selected={this.state.date} onChange={this.handleChange} /> </p>
-                    <p class="input-text form-fields"> Check Out:  <Datepicker selected={this.state.date} onChange={this.handleChange} /> </p>
+                    <p class="input-text form-fields"> Check In:   <Datepicker selected={this.state.date} /> </p>
+                    <p class="input-text form-fields"> Check Out:  <Datepicker selected={this.state.date}/> </p>
                     <p class="input-text form-fields"> 
                     <span>Budget Limit:</span>
                     <select class="Budget Limit">
@@ -48,7 +49,7 @@ class Body extends Component {
                     </select>
                     </p>
                      
-                    <p class="buttons"><Link to="/result"><Button variant="primary" size="lg" >Search</Button></Link> <Button variant="danger" size="lg" onClick={this.resetValues}>Reset</Button></p>
+                    <p class="buttons"><Button variant="primary" size="lg" >Search</Button><Button variant="danger" size="lg" onClick={this.resetValues}>Reset</Button></p>
                     </div>
                 </form>
 
