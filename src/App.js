@@ -19,14 +19,14 @@ import 'mdbreact/dist/css/mdb.css';
 //       body: JSON.stringify({Scenery: this.state.Scene})
 //   })
 // }
-const Header = () => <div className="header"> </div>
+
 const Footer = () => <div> This is the footer</div>
 
 function App() {
   return (
     <div>
-      <Header />
-      {/* <Navbar bg="light" expand="lg">
+      <div>
+      <Navbar expand="lg" className="header">
         <Navbar.Brand href="#home">
         <img
         alt=""
@@ -50,9 +50,12 @@ function App() {
           <Nav.Link>Map</Nav.Link>
         </Nav.Item>
       </Nav>
-      </Navbar> */}
-    
-      <Body />
+      </Navbar>
+      </div>
+      <div  className="background">
+      <Body  />
+      </div>
+      
       <Footer />
     </div>
   );

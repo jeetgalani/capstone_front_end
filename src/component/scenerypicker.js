@@ -2,23 +2,28 @@ import React from "react";
 
 
 class Scenerypicker extends React.Component {
-    state = {
-        scene : null
-    };
+    constructor(props) {
+        super(props);
+     
+        this.state = {
+            
+        };
+      }
 
-    Schange = Scene => {
-        this.setState ({
-            scene: Scene
-        });
-    };
 
     render() {
         return(
-            <Scenerypicker
-                selected={this.state.scene}
-                onChange={this.state.Schange}
-            
-            />
+            <div>
+                 <p className="input-text form-fields">
+                        <span> Scenery: </span>
+                    <select className="Scenery"  onChange={this.props.changer}>
+                        <option value="all" selected>Make a Selection</option>
+                        <option value="Woodland">Woodland</option>
+                        <option value="Urban">Urban</option>
+                        <option value="Oceanfront">Oceanfront</option>
+                    </select>
+                    </p>
+            </div>
         );
     }
 }

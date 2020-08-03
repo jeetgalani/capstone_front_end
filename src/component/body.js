@@ -21,35 +21,37 @@ class Body extends Component {
         document.getElementById("myForm").reset();
     }
 
+    getResults = async () => {
+        const result = await fetch(`http://localhost:8080/result/scenery/${this.state.scenery}`)
+        const destination = await result.json()
+        console.log(destination);
+        // this.setState()
+    }
+
+    // getPersonList = async () => {
+    //     const response = await fetch('/api/person')
+    //     const people = await response.json()
+    //     this.setState({people, selectedView : 'PersonList'})
+    // }
+
+    setSceneryChange = (e) => {
+        console.log("I am changing the scenery");
+          this.setState ({
+              scenery: e.target.value
+          });
+      };
+
 
     render () {
         return (
-            <div class="background">
-                <form id="myForm" class="rcorners2">
-                    <div class="form-content">
-                    {/* <Scenerypicker selected = {this.state.scenary} />
-                    <Budgetpicker selected = {this.state.budget} /> */}
-                    <p class="input-text form-fields">
-                        <span> Scenery: </span>
-                    <select class="Scenery">
-                        <option value="Woodland">Woodland</option>
-                        <option value="Urban">Urban</option>
-                        <option value="Oceanfront">Oceanfront</option>
-                    </select>
-                    </p>
-                    <p class="input-text form-fields"> Check In:   <Datepicker selected={this.state.date} /> </p>
-                    <p class="input-text form-fields"> Check Out:  <Datepicker selected={this.state.date}/> </p>
-                    <p class="input-text form-fields"> 
-                    <span>Budget Limit:</span>
-                    <select class="Budget Limit">
-                        <option value="">Make a Selection</option>
-                        <option value="1000">Under $1000</option>
-                        <option value="3000">Under $3000</option>
-                        <option value="5000">Under $5000</option>
-                    </select>
-                    </p>
-                     
-                    <p class="buttons"><Button variant="primary" size="lg" >Search</Button><Button variant="danger" size="lg" onClick={this.resetValues}>Reset</Button></p>
+            <div>
+                <form id="myForm" className="rcorners2">
+                    <div className="form-content">
+                    <Scenerypicker changer={this.setSceneryChange} />
+                    <div className="input-text form-fields"> Check In:   <Datepicker selected={this.state.date}/>  </div>
+                    <div className="input-text form-fields"> Check Out:  <Datepicker selected={this.state.date}/> </div>
+                    <Budgetpicker/>
+                    <p className="buttons"><Button  onClick={this.getResults} variant="primary" size="lg" >Search</Button><Button variant="danger" size="lg" onClick={this.resetValues}>Reset</Button></p>
                     </div>
                 </form>
 
