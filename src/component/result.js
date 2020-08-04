@@ -4,12 +4,29 @@ import { Navbar} from 'react-bootstrap';
 import { Nav} from 'react-bootstrap';
 
 class Result extends React.Component {
+
+    constructor(props) {
+        super(props)
+        this.foo="bar"
+
+        this.scenery = props.location.search.split("=")[1];
+      }
+
+
+    getResults = async () => {
+        //const result = await fetch(`http://localhost:8080/result/scenery/${this.state.scenery}`)
+        //const destination = await result.json()
+        // this.props.history.push(`/result?scenery=${this.state.scenery}`)
+        //console.log(destination);
+    }
+
     render () {
         return(
         <div>
+        Your scenery choice is : {this.scenery}
         <div className ="header">
         <Navbar expand="lg" className="header">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand href="/">
             {/* <img
             alt=""
             src="logo.jpg"
@@ -17,36 +34,33 @@ class Result extends React.Component {
             height="30"
 
         />{' '} */}
-            Travel Assistant</Navbar.Brand>
-            <Nav
-                activeKey="/home"
-                onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-            >
+            <i class="fas fa-plane"></i>    Travel Assistant</Navbar.Brand>
+            <Nav>
             <Nav.Item>
-            <Nav.Link>Home</Nav.Link>
+            <Nav.Link href="/"> Home <i class="fas fa-home"></i> </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-            <Nav.Link>Results</Nav.Link>
+            <Nav.Link href="/result?scenery=all"> Results <i class="fas fa-scroll"></i></Nav.Link>
             </Nav.Item>
             <Nav.Item>
-            <Nav.Link>Map</Nav.Link>
+            <Nav.Link>  Map <i class="fas fa-map-marked-alt"></i></Nav.Link>
             </Nav.Item>
         </Nav>
         </Navbar>
       </div>
-      <div className="background">
-            <Table striped bordered hover variant="dark">
+      <div className="result-background">
+            <Table striped bordered hover variant="light">
             <thead>
                 <tr>
-                <th>#</th>
-                <th>First Name</th>
+                <th>Name</th>
+                <th>Scenery</th>
                 <th>Last Name</th>
                 <th>Username</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                <td>1</td>
+                <td>{this.scenery}</td>
                 <td>Mark</td>
                 <td>Otto</td>
                 <td>@mdo</td>
@@ -65,6 +79,11 @@ class Result extends React.Component {
             </tbody>
             </Table>
             </div>
+            <footer className="footer"> 
+                <div className="container">
+                <p> <i class="fas fa-heartbeat"></i>    Don't forget to wear a mask and safe travels from the Hawk Team</p>
+                </div>
+            </footer>
         </div>
         ) 
 

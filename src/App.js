@@ -9,6 +9,8 @@ import {Nav, Navbar} from 'react-bootstrap';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import Carousel from './component/carousel';
+import Footer from './component/footer';
 
 // onQuery = async () => {
 //   await fetch('/api/person', {
@@ -20,43 +22,43 @@ import 'mdbreact/dist/css/mdb.css';
 //   })
 // }
 
-const Footer = () => <div> This is the footer</div>
-
 function App() {
   return (
-    <div>
-      <div>
-      <Navbar expand="lg" className="header">
-        <Navbar.Brand href="#home">
-        <img
-        alt=""
-        src="logo.jpg"
-        width="30"
-        height="30"
+    <div >
 
-      />{' '}
-          Travel Assistant</Navbar.Brand>
-          <Nav
-            activeKey="/home"
-            onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-          >
+      <Navbar expand="lg" className="header">
+        <Navbar.Brand  className="logo" href="/">
+
+          <i className="fas fa-plane"></i> Travel Assistant</Navbar.Brand>
+          <Nav>
         <Nav.Item>
-          <Nav.Link>Home</Nav.Link>
+          <Nav.Link href="/">Home <i className="fas fa-home"></i></Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link>Results</Nav.Link>
+          <Nav.Link href="/result?scenery=all">Results <i className="fas fa-scroll"></i></Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link>Map</Nav.Link>
+          <Nav.Link>Map <i className="fas fa-map-marked-alt"></i></Nav.Link>
         </Nav.Item>
       </Nav>
       </Navbar>
-      </div>
-      <div  className="background">
+     
+
+
+ 
+        
+      <Carousel /> 
+
       <Body  />
+
+      <div>
+      <footer className="footer"> 
+                <div className="container">
+                <p> <i class="fas fa-heartbeat"></i>    Don't forget to wear a mask and safe travels from the Hawk Team</p>
+                </div>
+        </footer>
       </div>
       
-      <Footer />
     </div>
   );
 }

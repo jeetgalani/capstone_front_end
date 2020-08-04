@@ -13,10 +13,11 @@ class Scenerypicker extends React.Component {
 
     render() {
         return(
-            <div>
+
+            <div className="form-fields ">
                  <p className="input-text form-fields">
-                        <span> Scenery: </span>
-                    <select className="Scenery"  onChange={this.props.changer}>
+                    <span> <i className="fas fa-compass"></i> Scenery: </span>
+                    <select className="selectpicker" onChange={this.props.changer}>
                         <option value="all" selected>Make a Selection</option>
                         <option value="Woodland">Woodland</option>
                         <option value="Urban">Urban</option>

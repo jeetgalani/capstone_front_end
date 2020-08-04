@@ -12,9 +12,9 @@ class Budgetpicker extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="form-fields">
             <p className="input-text form-fields"> 
-            <span>Budget Limit:</span>
+            <span><i class="fas fa-coins"></i> Budget Limit:</span>
             <select className="Budget Limit" onChange={this.setBudgetChange} value={this.state.budget}>
                 <option value="">Make a Selection</option>
                 <option value="1000">Under $1000</option>
