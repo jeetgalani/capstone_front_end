@@ -14,8 +14,8 @@ class Budgetpicker extends React.Component {
         return(
             <div className="form-fields">
             <p className="input-text form-fields"> 
-            <span><i class="fas fa-coins"></i> Budget Limit:</span>
-            <select className="Budget Limit" onChange={this.setBudgetChange} value={this.state.budget}>
+            <span><i class="fas fa-coins"></i> Budget Limit: </span>
+            <select className="Budget Limit" onChange={this.props.changer}>
                 <option value="">Make a Selection</option>
                 <option value="1000">Under $1000</option>
                 <option value="3000">Under $3000</option>

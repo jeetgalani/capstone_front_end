@@ -20,18 +20,24 @@ class Body extends Component {
         scenery: "all",
         check_in: null,
         check_out: null,
-        budget: null,
-        date: null
+        budget: "5000",
+        date: null, 
+        counter: 0,
+        counter2: 1,
     };
 
     resetValues = () => {
         document.getElementById("myForm").reset();
+        const currentDate = new Date();
+        this.setState({counter: this.state.counter+1});
+        this.setState({counter2: this.state.counter2+1})
+        this.setState({date: currentDate})
     }
 
     getResults = async () => {
         //const result = await fetch(`http://localhost:8080/result/scenery/${this.state.scenery}`)
         //const destination = await result.json()
-        this.props.history.push(`/result?scenery=${this.state.scenery}`)
+        this.props.history.push(`/result/find/scenery=${this.state.scenery}/budgetLimit=${this.state.budget}`)
         //console.log(destination);
     }
 
@@ -43,6 +49,14 @@ class Body extends Component {
           });
       };
 
+      setBudgetChange = (e) => {
+        console.log("I am changing the budget");
+          this.setState ({
+              budget: e.target.value
+          });
+      };
+
+
 
     render () {
         return (
@@ -50,9 +64,9 @@ class Body extends Component {
                 <form id="myForm" >
                     <div className="form-content form-fields">
                     <Scenerypicker changer={this.setSceneryChange} />
-                    <div className="input-text form-fields"> <i class="fas fa-suitcase"></i> Check In:   <Datepicker selected={this.state.date}/>  </div>
-                    <div className="input-text form-fields"> <i class="fas fa-luggage-cart"></i> Check Out:  <Datepicker selected={this.state.date}/> </div>
-                    <Budgetpicker/>
+                    <div className="input-text form-fields"> <i class="fas fa-suitcase"></i> Check In:   <Datepicker key={this.state.counter} selected={this.state.date}/>  </div>
+                    <div className="input-text form-fields"> <i class="fas fa-luggage-cart"></i> Check Out:  <Datepicker key={this.state.counter2}  selected={this.state.date}/> </div>
+                    <Budgetpicker changer={this.setBudgetChange}/>
                     <p className="buttons"><Button  onClick={this.getResults} variant="primary" size="lg" >Search</Button><Button variant="danger" size="lg" onClick={this.resetValues}>Reset</Button></p>
                     </div>
                    

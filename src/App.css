@@ -123,3 +123,8 @@
   font-weight: 500;
 }
 .rowC{display:flex; flex-direction:row;}
+
+.center {
+  margin-top: -30px;
+  margin-bottom: -20px;
+}

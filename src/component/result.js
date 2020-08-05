@@ -8,32 +8,59 @@ class Result extends React.Component {
     constructor(props) {
         super(props)
         this.foo="bar"
+        debugger
 
-        this.scenery = props.location.search.split("=")[1];
+        this.url= props.location.pathname.split("/")
+        if(this.url){
+
+        this.scenery = this.url[3].split("=")[1]
+
+        debugger
+
+        this.budgetLimit = this.url[4].split("=")[1]
+
+        this.state = {results: []}
+        }
       }
 
+    componentDidMount() {
+        this.getResults()
+    }
 
     getResults = async () => {
-        //const result = await fetch(`http://localhost:8080/result/scenery/${this.state.scenery}`)
-        //const destination = await result.json()
-        // this.props.history.push(`/result?scenery=${this.state.scenery}`)
-        //console.log(destination);
+        let result;
+        let destination;
+        if(this.scenery && this.budgetLimit) {
+        result = await fetch(`http://localhost:8080/result/find/${this.scenery}/${this.budgetLimit}`)
+         destination = await result.json()
+        }
+        else {
+            result = await fetch(`http://localhost:8080/result`)
+            destination = await result.json()
+
+        }
+        debugger;
+        console.log(destination)
+        this.setState( {results: destination})
     }
+
+    Destination = ({activities, arrival, budgetLimit, departure, name, scenery}) =>
+    
+                <tr>
+                    <td>{name}</td>
+                    <td>{scenery}</td>
+                    <td>{arrival}</td>
+                    <td>{departure}</td>
+                    <td>{budgetLimit}</td>
+                    <td>{activities}</td>
+                </tr>
 
     render () {
         return(
         <div>
-        Your scenery choice is : {this.scenery}
         <div className ="header">
         <Navbar expand="lg" className="header">
             <Navbar.Brand href="/">
-            {/* <img
-            alt=""
-            src="logo.jpg"
-            width="30"
-            height="30"
-
-        />{' '} */}
             <i class="fas fa-plane"></i>    Travel Assistant</Navbar.Brand>
             <Nav>
             <Nav.Item>
@@ -48,40 +75,32 @@ class Result extends React.Component {
         </Nav>
         </Navbar>
       </div>
-      <div className="result-background">
-            <Table striped bordered hover variant="light">
-            <thead>
+
+      <Table striped bordered hover variant="light">
+            <thead className="table">
                 <tr>
                 <th>Name</th>
                 <th>Scenery</th>
-                <th>Last Name</th>
-                <th>Username</th>
+                <th>Arrival</th>
+                <th>Departure</th>
+                <th>Budget Limit</th>
+                <th>Activities</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td>{this.scenery}</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
-                <tr>
-                <td>2</td>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                </tr>
-                <tr>
-                <td>3</td>
-                <td colSpan="2">Larry the Bird</td>
-                <td>@twitter</td>
-                </tr>
+              {this.state.results.map(result => <this.Destination key={result.id} name={result.name} scenery={result.scenery}
+                activities={result.activities} arrival={result.arrival}  budgetLimit={result.budgetLimit}  departure={result.departure}/>)}
+
             </tbody>
-            </Table>
+        </Table>
+      
+       
+      <div className="result-background">
+           
             </div>
             <footer className="footer"> 
-                <div className="container">
                 <p> <i class="fas fa-heartbeat"></i>    Don't forget to wear a mask and safe travels from the Hawk Team</p>
+                <div className="container">
                 </div>
             </footer>
         </div>

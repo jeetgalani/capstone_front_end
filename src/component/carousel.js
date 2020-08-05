@@ -4,7 +4,6 @@
 import beachfront from './beachfront.jpg';
  const CarouselPage = () => {
    return (
-     
        <MDBCarousel
          activeItem={1}
          length={3}
@@ -43,7 +42,6 @@ import beachfront from './beachfront.jpg';
            </MDBCarouselItem>
          </MDBCarouselInner>
        </MDBCarousel>
-     
    );
  }
 

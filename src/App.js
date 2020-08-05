@@ -35,7 +35,7 @@ function App() {
           <Nav.Link href="/">Home <i className="fas fa-home"></i></Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="/result?scenery=all">Results <i className="fas fa-scroll"></i></Nav.Link>
+          <Nav.Link href="/result/find/scenery=all/budgetLimit=5000">Results <i className="fas fa-scroll"></i></Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link>Map <i className="fas fa-map-marked-alt"></i></Nav.Link>
