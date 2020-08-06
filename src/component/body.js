@@ -64,8 +64,8 @@ class Body extends Component {
                 <form id="myForm" >
                     <div className="form-content form-fields">
                     <Scenerypicker changer={this.setSceneryChange} />
-                    <div className="input-text form-fields"> <i class="fas fa-suitcase"></i> Check In:   <Datepicker key={this.state.counter} selected={this.state.date}/>  </div>
-                    <div className="input-text form-fields"> <i class="fas fa-luggage-cart"></i> Check Out:  <Datepicker key={this.state.counter2}  selected={this.state.date}/> </div>
+                    <div className="input-text form-fields"> <i class="fas fa-suitcase"></i> Check In:   <Datepicker key={this.state.counter} selected={this.state.check_in}/>  </div>
+                    <div className="input-text form-fields"> <i class="fas fa-luggage-cart"></i> Check Out:  <Datepicker key={this.state.counter2}  selected={this.state.check_out}/> </div>
                     <Budgetpicker changer={this.setBudgetChange}/>
                     <p className="buttons"><Button  onClick={this.getResults} variant="primary" size="lg" >Search</Button><Button variant="danger" size="lg" onClick={this.resetValues}>Reset</Button></p>
                     </div>

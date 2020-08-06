@@ -1,7 +1,7 @@
  import React from "react";
  import { MDBCarousel, MDBCarouselInner, MDBCarouselItem, MDBView, MDBContainer } from
  "mdbreact";
-import beachfront from './beachfront.jpg';
+import beachfront2 from './beachfront2.jpg';
  const CarouselPage = () => {
    return (
        <MDBCarousel
@@ -17,7 +17,7 @@ import beachfront from './beachfront.jpg';
              <MDBView>
                <img
                  className="carousel-image"
-                 src={beachfront}
+                 src={beachfront2}
                  alt="First slide"
                />
              </MDBView>

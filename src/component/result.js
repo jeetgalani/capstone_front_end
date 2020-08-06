@@ -24,6 +24,7 @@ class Result extends React.Component {
       }
 
     componentDidMount() {
+        window.scrollTo(0,0);
         this.getResults()
     }
 
@@ -67,7 +68,7 @@ class Result extends React.Component {
             <Nav.Link href="/"> Home <i class="fas fa-home"></i> </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-            <Nav.Link href="/result?scenery=all"> Results <i class="fas fa-scroll"></i></Nav.Link>
+            <Nav.Link href="/result/find/scenery=all/budgetLimit=5000"> Results <i class="fas fa-scroll"></i></Nav.Link>
             </Nav.Item>
             <Nav.Item>
             <Nav.Link>  Map <i class="fas fa-map-marked-alt"></i></Nav.Link>
